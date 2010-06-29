@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.steelpotato</groupId>
+    <artifactId>footer-datagrid</artifactId>
+    <version>1.0.1</version>
+    <packaging>swc</packaging>
+    <name>Flex Footer Datagrid</name>
+    <properties>
+        <!--<flex.sdk.version>3.5.0.12683</flex.sdk.version>-->
+        <flex.sdk.version>4.0.0.14159</flex.sdk.version>
+        <flex.targetPlayer>10.0.0</flex.targetPlayer>
+        <flexmojos.version>3.6.1</flexmojos.version>
+    </properties>
+    <build>
+        <sourceDirectory>src/main/flex</sourceDirectory>
+        <testSourceDirectory>src/test/flex</testSourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.sonatype.flexmojos</groupId>
+                <artifactId>flexmojos-maven-plugin</artifactId>
+                <version>${flexmojos.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <configurationReport>true</configurationReport>
+                    <targetPlayer>${flex.targetPlayer}</targetPlayer>
+                    <externs>
+                        <extern>com.steelpotato.footerDataGrid._footerDataGrid</extern>
+                    </externs>
+                    <warnings>
+                        <changesInResolve>true</changesInResolve>
+                        <deprecatedEventHandlerError>true</deprecatedEventHandlerError>
+                        <noConstructor>false</noConstructor>
+                    </warnings>
+                    <locales>
+                        <locale>en_US</locale>
+                    </locales>
+                    <excludeTestFiles>
+                        <param>Test.mxml</param>
+                        <param>TestDGFooter.mxml</param>
+                    </excludeTestFiles>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.adobe.flex</groupId>
+                        <artifactId>compiler</artifactId>
+                        <version>${flex.sdk.version}</version>
+                        <type>pom</type>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <!--COMPILE-->
+        <dependency>
+            <groupId>com.adobe.flex.framework</groupId>
+            <artifactId>flex-framework</artifactId>
+            <version>${flex.sdk.version}</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.flex.framework</groupId>
+            <artifactId>playerglobal</artifactId>
+            <version>10-3.3.0.4852</version>
+            <type>swc</type>
+        </dependency>
+        <!--TEST -->
+        <dependency>
+            <groupId>com.adobe.flexunit</groupId>
+            <artifactId>flexunit</artifactId>
+            <version>4.0-rc-1</version>
+            <type>swc</type>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <!-- REPOS -->
+</project>
+

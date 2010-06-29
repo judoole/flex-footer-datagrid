@@ -6,7 +6,7 @@ package com.steelpotato.footerDataGrid
 
 	public class AdvancedFooterDataGrid extends AdvancedDataGrid implements IFooterDataGrid
 	{
-		include "_footerDataGrid.as";
+		include "_footerDataGrid";
 		
 		public function createListData(text:String, dataField:String, i:int):BaseListData
 		{

@@ -1,1 +1,6 @@
 bin-debug
+*.ipr
+*.iws
+*.iml
+*x_main_class_config.xml
+target
