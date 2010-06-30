@@ -1,7 +1,10 @@
 package com.steelpotato.footerDataGrid {
     import com.amentra.flex.utils.ExpressionUtils;
-    
-    import mx.controls.listClasses.IListItemRenderer;
+
+import flash.events.Event;
+import flash.events.EventDispatcher;
+
+import mx.controls.listClasses.IListItemRenderer;
     import mx.core.IFactory;
 
     public class SummaryColumn implements IFooterDataGridColumn {
@@ -15,11 +18,12 @@ package com.steelpotato.footerDataGrid {
         
         [Bindable] public var footer:SummaryFooter;
         [Bindable] public var labelFunction:Function;
-        [Bindable] public var label:String;
         [Bindable] public var itemRenderer:IFactory;
         [Bindable] public var column:Object;
         [Bindable] public var renderer:IListItemRenderer;
         [Bindable] public var useColumnItemRenderer:Boolean = true;
+        [Bindable] public var label:String;
+        [Bindable] public var value:Number;
         
         public var precision:int = 0;
         
@@ -96,33 +100,36 @@ package com.steelpotato.footerDataGrid {
         }
         
         private function defaultLabelFunction(col:Object):String {
-            var value:Number = 0;
+            var v:Number = 0;
             
             switch (_operation) {
                 case SUM:
-                    value = sum(col);
+                    v = sum(col);
                     break;
                 case AVG:
-                    value = average(col);
+                    v = average(col);
                     break;
                 case MIN:
-                    value = min(col);
+                    v = min(col);
                     break;
                 case MAX:
-                    value = max(col);
+                    v = max(col);
                     break;
                 case COUNT:
-                    value = count(col);
+                    v = count(col);
                     break;
             }
             
-            var label:String = (value) ? value.toFixed(precision) : '';
-            
+            var label:String = (v) ? v.toFixed(precision) : '';
+
+            this.value = v;
+
             return label.replace(/\.00/,'');
         }
         
         public function get dataProvider():Object {
             return footer.dataProvider;
         }
+
     }
 }

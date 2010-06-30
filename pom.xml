@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.steelpotato</groupId>
     <artifactId>footer-datagrid</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <packaging>swc</packaging>
     <name>Flex Footer Datagrid</name>
     <properties>
