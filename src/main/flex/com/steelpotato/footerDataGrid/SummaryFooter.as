@@ -33,7 +33,6 @@ package com.steelpotato.footerDataGrid
         public function SummaryFooter()
         {
             super();      
-            setStyle('backgroundColor', 0xF7F7F7); 
         }
     
         public function get columns():Array
